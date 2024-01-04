@@ -1,0 +1,56 @@
+{#
+/**
+ * Block Name: Our service
+ */
+#}
+
+<div id="our-service-{{ block.id }}" class="our-service">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-4 our-service__headline ">
+        {% if fields.our_service.title %}
+          <h2 class="our-service__title">{{ fields.our_service.title }}</h2>
+        {% endif %}
+
+        {% if fields.our_service.description %}
+          <p class="our-service__desc">{{ fields.our_service.description }}</p>
+        {% endif %}
+      </div>
+      <div class="col-md-12 col-lg-8">
+        {% if  fields.our_service.columns %}
+          <div class="row">
+            {% for field in fields.our_service.columns %}
+
+              <div class="col-sm-12 col-md-6  our-service__column">
+                <a class="our-service__link" href="{{ field.link.url }}" target="{{ field.link.target ? field.link.target : '_self' }}">
+                  <div class="our-service__column-content">
+
+                    {% if field.icon.url %}
+                      <img src="{{ field.icon.url }}" class="our-service__icon" alt="{{ field.icon.alt }}">
+                    {% endif %}
+
+                    {% if field.column_title %}
+                      <h3 class="our-service__column-title">{{ field.column_title }}</h3>
+                    {% endif %}
+
+                    <p class="our-service__column-desc">{{ field.column_description }}</p>
+                    {% if field.link.url %}
+                      <div class="link">
+                        <span class="link__href">{{ field.link.title }}
+                        </span>
+                        <div class="link__arrow">
+                          {% include 'svg/link_arrow.svg' %}
+                        </div>
+
+                      </div>
+                    {% endif %}
+                  </div>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

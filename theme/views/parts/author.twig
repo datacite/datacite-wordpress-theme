@@ -1,0 +1,28 @@
+<div class="author">
+  <div class="author__single-container">
+    <div class="row">
+      <div class="col-12 col-sm-4 col-md-4 col-lg-12 ">
+        {% if author.author.image.url %}
+          <img class="author__image m-b-16" src="{{ author.author.image.url|resize(72,72) }}"
+               alt="{{ author.author.image.title }}">
+        {% else %}
+          <img class="author__image m-b-16" src="{{ author.avatar.abs_url|resize(72,72) }}" alt="Avatar image">
+        {% endif %}
+      </div>
+      <div class="col-12 col-sm-8 col-md-8 col-lg-12 d-flex flex-column justify-content-center">
+        <h4 class="author__single-name">{{ author.first_name }} {{ author.last_name }}</h4>
+        <h5 class="author__position">{{ author.author.position }}</h5>
+        <div class="author__badge-container">
+
+          {% for item in author.author.badge %}
+            <a class="" href="{{ item.link }}" target="_blank">
+              <img class="m-r-16" src="{{ item.icon.url }}" alt="">
+            </a>
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

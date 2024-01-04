@@ -1,0 +1,117 @@
+<section class="blog-hero">
+  <canvas id="tsparticles"></canvas>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 z-index-1">
+        <h1 class="blog-hero__title">{{ function('the_archive_title') }}</h1>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* ---- tsparticles container ---- */
+  #tsparticles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+</style>
+<script>
+
+  var mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var loadedParticles = false;
+
+  setInterval(function(){
+
+    if ( loadedParticles || mediaQuery.matches ) {
+      return;
+    }
+
+    tsParticles.load("tsparticles", {
+    fps_limit: 60,
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onclick: { enable: true, mode: "pause" },
+        resize: true
+      },
+      modes: {
+        bubble: { distance: 400, duration: 2, opacity: 0.5, size: 40, speed: 3 },
+        grab: { distance: 400, line_linked: { opacity: 0.5 } },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 },
+        repulse: { distance: 200, duration: 0.4 }
+      }
+    },
+    particles: {
+      color: { value: "#243b54" },
+      line_linked: {
+        color: "#243b54",
+        distance: 150,
+        enable: true,
+        opacity: 0.2,
+        width: 1
+      },
+      move: {
+        attract: { enable: false, rotateX: 600, rotateY: 1200 },
+        bounce: false,
+        direction: "none",
+        enable: true,
+        out_mode: "out",
+        random: false,
+        speed: 2,
+        straight: false
+      },
+      number: { density: { enable: true, value_area: 800 }, value: 80 },
+      opacity: {
+        anim: { enable: false, opacity_min: 0.1, speed: 1, sync: false },
+        random: false,
+        value: 0.5
+      },
+      shape: {
+        character: {
+          fill: false,
+          font: "Verdana",
+          style: "",
+          value: "*",
+          weight: "400"
+        },
+        image: {
+          height: 100,
+          replace_color: true,
+          src: "images/github.svg",
+          width: 100
+        },
+        polygon: { nb_sides: 5 },
+        stroke: { color: "#243b54", width: 0 },
+        type: "circle"
+      },
+      size: {
+        anim: { enable: false, size_min: 0.1, speed: 40, sync: false },
+        random: true,
+        value: 5
+      }
+    },
+    polygon: {
+      draw: { enable: false, lineColor: "#FFFFFF", lineWidth: 0.5 },
+      move: { radius: 10 },
+      scale: 1,
+      type: "none",
+      url: ""
+    },
+    retina_detect: true
+  });
+
+    loadedParticles = true;
+
+  }, 250 );
+
+
+</script>

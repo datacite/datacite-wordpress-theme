@@ -1,0 +1,27 @@
+.blog-info {
+  padding-top: 6.25rem;
+  padding-bottom: 6.25rem;
+  background: $accentColor;
+
+  &__title {
+    @include title();
+  }
+
+  &__description {
+    font-size: 1.25rem;
+    font-weight: $regular;
+    line-height: 1.875rem;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 1200px) {
+      padding-right: 4rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__image {
+    margin-bottom: 3rem;
+    clip-path: url(#myClip);
+    max-width: 100%;
+  }
+}

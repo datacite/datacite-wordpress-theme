@@ -1,0 +1,4 @@
+FROM node:10.24.0
+RUN npm install gulp-cli -g
+EXPOSE 3000
+EXPOSE 3001

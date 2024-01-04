@@ -1,0 +1,86 @@
+{#
+/**
+ * Block Name: Governance past members
+ */
+#}
+
+{% if is_preview %}
+  <p>I will only appear in the editor.</p>
+{% endif %}
+
+<div id="governance-past-members{{ block.id }}" class="governance-past-members">
+
+  <div class="container">
+
+    <div class="row justify-content-center">
+      <div class="col-md-12 col-lg-9">
+
+        <h2 class="governance-past-members__title">{{ fields.past_members.title }}</h2>
+
+        <ul class="governance-past-members__tabs governance-past-members__slider swiper">
+
+          <div class="swiper-wrapper">
+            {% set count = 1 %}
+
+            {% for year in years %}
+              <div class="swiper-slide">
+                <li class="governance-past-members__nav-item" role="presentation">
+                  <span
+                    class="governance-past-members__tab governance-past-members__nav-link {{ count == 1 ? 'open' : ' ' }}"
+                    data-content="{{ count }}">{{ year }}</span>
+                </li>
+              </div>
+              {% set count = count + 1 %}
+            {% endfor %}
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </ul>
+
+
+      </div>
+
+      <div class="governance-past-members__tab-content-container">
+        {% set count = 1 %}
+        {% for year in years %}
+          <div
+            class="governance-past-members__tab-content governance-past-members__tab-pane {{ count == 1 ? 'show-content' : ' ' }}"
+            data-content="{{ count }}">
+            {% for post in fields.past_members.members %}
+
+              {% if year in post.dateRange %}
+                <div class="governance-past-members__item">
+                  <div class="governance-past-members__item-content">
+                    {% if  post.past_members_link %}
+                      <a class="governance-past-members__item-link" href="{{ post.past_members_link.url }}" target="{{ post.past_members_link.target ? post.past_members_link.target : '_self' }}">
+                      <div class="governance-past-members__item-name">{{ post.post_title }}</div>
+                      </a>
+                    <a class="governance-past-members__item-link" href="{{ post.past_members_link.url }}" target="{{ post.past_members_link.target ? post.past_members_link.target : '_self' }}">
+                      <div class="governance-past-members__item-position">{{ post.past_members_position }}</div>
+                    </a>
+                    {% else %}
+                      <div class="governance-past-members__item-name">{{ post.post_title }}</div>
+                      <div class="governance-past-members__item-position">{{ post.past_members_position }}</div>
+                    {% endif %}
+
+
+                  </div>
+
+                  <div class="governance-past-members__item-date">{{ post.past_members_start_date|date('Y') }}
+                    - {{ post.past_members_end_date|date('Y') }}</div>
+                </div>
+              {% endif %}
+            {% endfor %}
+
+          </div>
+          {% set count = count + 1 %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+

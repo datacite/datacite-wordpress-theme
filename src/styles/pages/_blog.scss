@@ -1,0 +1,50 @@
+.blog {
+
+  &__container {
+    padding-top: 6rem;
+  }
+
+  &__title {
+    font-size: 3rem;
+    font-weight: $bold;
+    margin-bottom: 3rem;
+    font-family: $header-font-family
+  }
+
+  &__metadata {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1.5rem;
+  }
+
+  &__date {
+    font-size: 0.875rem;
+    font-weight: $medium;
+    line-height: 1.125rem;
+    font-family: $header-font-family;
+    margin-right: 1.5rem;
+  }
+
+  &__author-name {
+    font-family: $header-font-family;
+    font-weight: $medium;
+    line-height: 1.125rem;
+    font-size: 0.875rem;
+  }
+
+  &__author-icon {
+    width: 1.5rem;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 0.625rem;
+  }
+
+  &__read-time {
+    color: rgba($black,.5);
+    font-size: 0.8125rem;
+    font-family: $header-font-family;
+    line-height: 1;
+    font-weight: $medium;
+  }
+}

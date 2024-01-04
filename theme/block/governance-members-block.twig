@@ -1,0 +1,78 @@
+{#
+/**
+ * Block Name: Governance members
+ */
+#}
+
+<div id="governance-members{{ block.id }}" class="governance-members">
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12">
+        {% if fields.governance_members.title %}
+          <h2 class="governance-members__title text-center">{{ fields.governance_members.title }}</h2>
+        {% endif %}
+      </div>
+    </div>
+
+
+    <div class="row">
+
+
+      {% for member in fields.governance_members.members %}
+
+        {% set ID = member.ID %}
+        {% set image_id = fn('get_post_thumbnail_id',ID) %}
+        {% set url = fn('wp_get_attachment_url',image_id) %}
+
+
+        <div class="col-sm-12 col-md-6 col-lg-4 item {{ fields.governance_members.show_more ? 'hidden' : '' }} governance-members__box">
+          <article class="governance-members__post">
+            <img class="governance-members__image" src="{{ url|resize(124,124) }}" alt="{{ member.post_title }}">
+
+            <div class="governance-members__content-wrapper">
+
+              <div class="governance-members__container-title">
+                {% if member.post_title %}
+                  <h3 class="governance-members__post-title text-center">
+                    {{ member.post_title }}
+                  </h3>
+                {% endif %}
+                {% if member.social  %}
+                <div class="governance-members__post-icons">
+                  {% for field in member.social %}
+                    {% for icon in field %}
+                      <a class="governance-members__post-icon" href="{{ icon.link.url }}" target="_blank">
+                        <img class="" src="{{ icon.icon.url }}" alt="{{ icon.icon.alt }}">
+                      </a>
+                    {% endfor %}
+                  {% endfor %}
+
+                </div>
+                {% endif %}
+                <h4 class="governance-members__position text-center">{{ member.members_position }}</h4>
+                <div class="governance-members__content readmore js-read-more" data-rm-words="20">
+                  <p>{{ member.members_description }}</p>
+                </div>
+
+              </div>
+            </div>
+          </article>
+
+        </div>
+      {% endfor %}
+
+      {% if fields.governance_members.show_more %}
+      <div class="col-12 text-center">
+        <button id="loadmore" class="button">{{ __('Show more') }}</button>
+      </div>
+      {% endif %}
+
+
+    </div>
+
+  </div>
+</div>
+
+

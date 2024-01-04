@@ -1,0 +1,82 @@
+{#
+/**
+ * Block Name: Blog Section
+ */
+#}
+
+<div id="blog-section-{{ block.id }}" class="blog-section">
+  <div class="container">
+
+    <div class="row blog-section__row">
+      <div class="col-md-12 col-lg-9 d-flex justify-content-center justify-content-lg-start align-items-center">
+        {% if  fields.blog.title %}
+        <h2 class="blog-section__title mb-3 mb-lg-0">{{ fields.blog.title }}</h2>
+        {% endif %}
+      </div>
+      <div class="col-md-12 col-lg-3 d-flex justify-content-center justify-content-lg-end align-items-center">
+        {% if fields.blog.button.url %}
+        <a class="button" href="{{ fields.blog.button.url }}" target="_blank" rel="noopener noreferrer">
+          {{ fields.blog.button.title }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if  fields.blog.post %}
+    <div class="row">
+      {% for field in fields.blog.post %}
+
+        <div class="col-sm-12 col-md-6 col-lg-4 blog-section__column">
+          <div class="blog-section__column-content">
+            <div class="blog__metadata">
+               <span class="calendar-icon m-r-16">
+              {% include 'svg/calendar_icon.svg' %}
+            </span>
+              <span class="date">{{ field.post_date |date('F j, Y') }}</span>
+
+              {{ function('display_datacite_post_author', field.ID) }}
+
+              {# {%  if field.author.author.image  %}
+
+                <a class="blog-section__link" href="{{ field.author.link }}">
+                  <img class="author__icon" src="{{ field.author.author.image.url|resize(24,24) }}"
+                      alt="{{ field.author.author.image.title }}">
+                </a>
+              {% else %}
+                {%  set avatar = function('get_avatar_url', field.author.ID) %}
+                <a class="blog-section__link" href="{{ field.author.link }}">
+                  <img class="author__icon" src="{{  avatar|resize(24,24)  }}"
+                       alt="Author avatar">
+                </a>
+
+              {% endif %} #}
+
+            </div>
+
+            <h4 class="blog-section__post-title">
+              <a class="blog-section__link" href="{{ field.link }}">
+                {{ field.post_title }} </a>
+            </h4>
+
+            <div class="blog-section__desc">
+              {# {{ field.post_content|truncate(20) }} #}
+              {{ field.post_excerpt|truncate(23) }}
+            </div>
+          </div>
+
+          {% for category in field.categories %}
+
+            <a class="blog-section__link" href="{{ function('get_category_link', category.cat_ID) }}">
+              <span class="category-tab m-r-10 m-b-10">{{ category.name }}</span>
+            </a>
+
+          {% endfor %}
+
+          <span class="read-time">{{ field.post_content | estimated_time }} {{ __('min Read') }}</span>
+        </div>
+
+      {% endfor %}
+    </div>
+    {%  endif %}
+  </div>
+</div>

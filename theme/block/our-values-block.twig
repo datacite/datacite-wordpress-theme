@@ -1,0 +1,80 @@
+{#
+/**
+ * Block Name: Our values
+ */
+#}
+
+<div id="our-values-{{ block.id }}" class="our-values">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        {% if  fields.our_values.title %}
+        <h2 class="our-values__title">{{ fields.our_values.title }}</h2>
+        {% endif %}
+
+        {% if  fields.our_values.tabs %}
+        <div class="our-values__column our-values__column--left">
+
+          {% set count = 1 %}
+          {% for field in fields.our_values.tabs %}
+
+            <div class="our-values__tab-content {{ count == 1 ? 'show-content': ' ' }}" data-content="{{ count }}">
+              <div class="our-values__number-container">
+                <span class="our-values__number">0{{ count }}</span>
+              </div>
+
+              <img class="our-values__image{{ count }}" src="{{ field.image.url }}" alt="">
+
+              <svg width="0" height="0" viewBox="0 0 610 667" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <clipPath id="values{{ count }}" clipPathUnits="objectBoundingBox" transform="scale(.00175 .00203)">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M240 0H610V501H340V173H240V0ZM240 203L0 203V667H310V501V203H240Z" fill="#C4C4C4"/>
+                  </clipPath>
+                </defs>
+              </svg>
+
+            </div>
+            {% set count = count + 1 %}
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="offset-lg-1 col-lg-5">
+        <div class="our-values__column our-values__column--right">
+
+
+          {% set count = 1 %}
+          {% for field in fields.our_values.tabs %}
+            <div class="our-values__tab-container">
+              <h3 class="our-values__tab {{ count == 1 ? 'active' :  ' ' }}" data-content="{{ count }}">
+                {{ field.headline }}
+                <i class="ea-expand-icon fa fa-plus"></i>
+                <i class="ea-expand-icon fa fa-minus"></i>
+              </h3>
+              <div class="our-values__tab-con {{ count == 1 ? 'show-content' :  ' ' }}" data-content="{{ count }}">
+
+                {{ field.description }}.
+
+              </div>
+            </div>
+            {% set count = count + 1 %}
+          {% endfor %}
+        </div>
+        <div class="our-values__button-container d-flex justify-content-end">
+          {% if fields.our_values.button.url %}
+          <a class="button button--white" href="{{ fields.our_values.button.url }}" {% if fields.our_values.button.target %}target="_blank"{% endif %} rel="noopener noreferrer">
+            {{ fields.our_values.button.title }}
+          </a>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

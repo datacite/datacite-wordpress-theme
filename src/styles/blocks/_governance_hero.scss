@@ -1,0 +1,131 @@
+.governance-hero {
+  $self: &;
+  padding-top: 3rem;
+  background-color: $primaryColor;
+  padding-bottom: 4.25rem;
+  margin-bottom: 2rem;
+  @include full-width-section();
+
+  @media (min-width: 768px) {
+    padding-top: 7.5rem;
+  }
+
+  &__background {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  &__index {
+    z-index: 1;
+  }
+
+  &__title {
+    color: $white;
+    font-size: 3rem;
+    font-weight: $bold;
+    font-family: $header-font-family;
+    line-height: 4.5rem;
+    margin-bottom: 3.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+      margin-bottom: 5.5rem;
+    }
+  }
+
+  &__link {
+    color: rgba($white, .5);
+    font-size: 1.5rem;
+    font-weight: $medium;
+    font-family: $header-font-family;
+    line-height: 2rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-left: 3.5rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 2.25rem;
+      line-height: 2.25rem;
+      font-size: 1.5rem;
+      padding-left: 5rem;
+    }
+
+    &.active {
+      color: $white;
+    }
+
+    &:after {
+      content: "";
+      background-image: url("../assets/images/arrow_right.svg");;
+      position: absolute;
+      display: none;
+      width: 2.4rem;
+      height: 1rem;
+      top: .5rem;
+      left: 0;
+    }
+
+    &.active:after {
+      display: block;
+    }
+  }
+
+  &__tab {
+    color: $white;
+    font-size: 1rem;
+    font-weight: $regular;
+    font-family: $body-font-family;
+    line-height: 1.625rem;
+
+    a {
+      color: $white!important;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+}
+
+.acf-block-preview {
+
+  .governance-hero {
+    width: 100% !important;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+    &__title {
+      @media (min-width: 768px) {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+    }
+
+    &__tab {
+      width: 18.75rem;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+      font-size: .875rem;
+      font-weight: normal;
+    }
+
+    &__link {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+
+      @media (min-width: 768px) {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+
+

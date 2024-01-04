@@ -1,0 +1,50 @@
+.author {
+
+  &__icon {
+    width: 1.5rem;
+    height: auto;
+    border-radius: 50%;
+    margin-right: 0.625rem;
+  }
+
+  &__image {
+    width: 9rem;
+    height: auto;
+    border-radius: 50%;
+    display: block;
+
+    @media (min-width: 992px) {
+      width: 4.5rem;
+    }
+  }
+
+  &__name {
+    font-family: $header-font-family;
+    font-weight: $medium;
+    line-height: 1.125rem;
+    font-size: 0.875rem;
+  }
+
+  &__position {
+    font-size: .875rem;
+    line-height: 1.125rem;
+    color: rgba($primaryColor,.6);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  &__single-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__single-name {
+    font-size: 1.125rem;
+    font-weight: $bold;
+    line-height: 1.625rem;
+  }
+
+  &__badge-container {
+    display: flex;
+  }
+}

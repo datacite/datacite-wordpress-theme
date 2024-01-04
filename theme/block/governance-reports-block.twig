@@ -1,0 +1,83 @@
+{#
+/**
+ * Block Name: Governance reports
+ */
+#}
+
+{% if is_preview %}
+  <p>I will only appear in the editor.</p>
+{% endif %}
+
+<div id="governance-reports-{{ block.id }}" class="governance-reports">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-12 col-lg-6 governance-reports__column">
+        <div class="governance-reports__column-content">
+          {% if fields.annual_reports.title %}
+            <h2 class="governance-reports__title">{{ fields.annual_reports.title }}</h2>
+          {% endif %}
+
+          {% if fields.annual_reports.description %}
+            <p class="governance-reports__description">
+              {{ fields.annual_reports.description }}
+            </p>
+          {% endif %}
+          {% if fields.annual_reports.reports %}
+            <div class="governance-reports__link-container">
+              {% for field in fields.annual_reports.reports %}
+
+                {% if field.file.url or field.link.url %}
+
+                  {% if field.file.url %}
+                    <a class="governance-reports__link" href="{{ field.file.url }}" title="{{ field.title }}"
+                       target="_blank">{{ field.title }}</a>
+                  {% else %}
+                    <a class="governance-reports__link" href="{{ field.link.url }}" title="{{ field.title }}"
+                       target="_blank">{{ field.title }}</a>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="col-md-12 col-lg-6 governance-reports__column">
+        <div class="governance-reports__column-content">
+          {% if fields.board_meeting.title %}
+            <h2 class="governance-reports__title">{{ fields.board_meeting.title }}</h2>
+          {% endif %}
+
+          {% if fields.board_meeting.description %}
+            <p class="governance-reports__description">
+              {{ fields.board_meeting.description }}
+            </p>
+          {% endif %}
+
+          {% if fields.board_meeting.meetings %}
+            <div class="governance-reports__link-container">
+              {% for field in fields.board_meeting.meetings %}
+
+                {% if field.file.url or field.link.url %}
+
+                  {% if field.file.url %}
+                    <a class="governance-reports__link" href="{{ field.file.url }}" title="{{ field.title }}"
+                       target="_blank">{{ field.title }}</a>
+                  {% else %}
+
+                    <a class="governance-reports__link" href="{{ field.link.url }}" title="{{ field.title }}"
+                       target="_blank">{{ field.title }}</a>
+                  {% endif %}
+
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

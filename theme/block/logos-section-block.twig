@@ -1,0 +1,39 @@
+{#
+/**
+ * Block Name: Logos section
+ */
+#}
+
+{% if is_preview %}
+  <p>I will only appear in the editor.</p>
+{% endif %}
+
+<div id="logos-section-{{ block.id }}" class="logos-section">
+  <div class="container">
+    <div class="row">
+      <div class="col logos-section__wrapper">
+        <h2 class="logos-section__title">{{ fields.logos.title }}</h2>
+        <p class="logos-section__subtitle">{{ fields.logos.description }}</p>
+
+        <div class="logos-section__slider swiper">
+
+          <div class="swiper-wrapper">
+              {% for field in fields.logos.slider %}
+                <div class="swiper-slide">
+                  <a href="{{ field.link.url }}" target="_blank">
+                  <img src="{{ field.logo.url }}" class="" alt="{{ field.logo.alt }}">
+                  </a>
+                </div>
+              {% endfor %}
+
+            </div>
+
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

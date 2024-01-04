@@ -1,0 +1,12 @@
+.idea
+.vscode
+.tmp
+.env
+node_modules
+docker/volumes
+docker/logs
+vendor
+!vendor/autoload.php
+wp-*
+*.map
+.DS_STORE

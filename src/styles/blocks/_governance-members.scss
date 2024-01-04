@@ -1,0 +1,251 @@
+.governance-members {
+  $self: &;
+
+  padding-top: 3.25rem;
+  padding-bottom: 1.25rem;
+  @include full-width-section();
+
+
+  @media (min-width: 768px) {
+    padding-top: 6.25rem;
+    padding-bottom: 3.25rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: $bold;
+    line-height: 3rem;
+    margin-bottom: 6rem;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+      line-height: 3.875rem;
+      margin-bottom: 6.875rem;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    max-width: 7.75rem;
+    border-radius: 50%;
+    display: block;
+    top: -3.875rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+
+  &__box {
+    margin-bottom: 5.5rem;
+
+    @media (min-width: 768px) {
+      margin-bottom: 7.875rem;
+    }
+  }
+
+  &__post {
+    position: relative;
+    background-color: rgba($primaryColor, .03);
+    padding: 5.875rem 2.5rem 1.5rem;
+    height: 100%;
+  }
+
+  &__container-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.875rem;
+  }
+
+  &__post-icons {
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__post-icon {
+
+    margin-right: 0.8rem;
+    width: 1.25rem;
+    height: auto;
+  }
+
+  &__post-title {
+    font-size: 1.5rem;
+    font-weight: $medium;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+
+  }
+
+  &__position {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-transform: uppercase;
+    font-weight: $regular;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.75px;
+    color: rgba($primaryColor, .6);
+  }
+
+  &__content {
+
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    transition: all .3s ease;
+  }
+
+  &__link-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__link {
+    color: $blueColor;
+    font-weight: $medium;
+    text-decoration: none!important;
+    display: flex;
+    width: fit-content;
+    position: relative;
+
+    margin: 0 auto;
+
+    &:after {
+      position: absolute;
+      top: .25rem;
+      right: -1.5rem;
+      content: "";
+      display: block;
+      width: 16px;
+      height: 12px;
+      background-image: url("../assets/images/link_arrow_down.svg");
+      background-repeat: no-repeat;
+    }
+
+    &.open:after {
+      transform: rotate(180deg);
+    }
+  }
+
+}
+.hidden {
+  display: none;
+}
+
+
+.acf-block-preview {
+  .governance-members {
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+
+    @media (min-width: 768px) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .container {
+      padding: 0;
+    }
+
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 5rem;
+      font-family: $header-font-family;
+
+      @media (min-width: 768px) {
+        margin-bottom: 5rem;
+      }
+    }
+
+    &__post {
+      margin-bottom: 5rem;
+      padding: 5.875rem 1rem 1rem;
+
+    }
+
+    &__post-title {
+      font-size: 1.5rem;
+      font-weight: $medium;
+      line-height: 2rem;
+      margin-bottom: 0;
+      font-family: $header-font-family;
+    }
+
+    &__position {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      font-weight: $regular;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.75px;
+      color: rgba($primaryColor, .6);
+    }
+
+    &__content {
+
+      margin-bottom: 2rem;
+      transition: all .3s ease;
+      font-family: $body-font-family;
+    }
+
+    &__link-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__link {
+      color: $blueColor;
+      font-weight: $medium;
+      display: flex;
+      width: fit-content;
+      position: relative;
+      margin: 0 auto;
+      font-family: $body-font-family;
+    }
+  }
+}
+
+
+.js.excerpt {
+  opacity: 1;
+  height: auto;
+}
+
+.excerpt-visible {
+  opacity: 1;
+  height: auto;
+
+}
+
+.hiddenStyle {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.excerpt-hidden {
+  height: 5rem;
+  overflow: hidden;
+  position: relative;
+
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 64px;
+
+  }
+}
+
+

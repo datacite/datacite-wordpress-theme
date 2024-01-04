@@ -1,0 +1,227 @@
+<div class="navigation-mobile">
+  <div class="navigation-mobile__nav">
+    <div class="navigation-mobile__wrapper">
+      <nav id="navbar" class="navigation-mobile__navbar">
+        <ul class="navigation-mobile__menu" id="menu">
+
+
+          {% for field in options.header.menu %}
+
+            {% set name = field.menu.name|lower %}
+
+            <li class="navigation-mobile__menu-item menu-dropdown">
+
+              <span class="navigation-mobile__menu-link" data-toggle="submenu">{{ field.menu_label }}</span>
+              <div class="menu-about-us-container">
+                <ul class="menu submenu">
+
+
+                  {% if name is same as 'first column' %}
+
+                    {% for item in first_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <div class="nav-main-link-wrapper">
+                          <a class="nav-main-link"
+                             href="{{ item.link }}">{{ item.title }}
+                          </a>
+                        </div>
+
+                        {% if item.children %}
+
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+                  {% elseif  name is same as 'second column' %}
+
+                    {% for item in second_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <a class="nav-main-link"
+                           href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+                  {% elseif  name is same as 'third column' %}
+
+                    {% for item in third_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <a class="nav-main-link"
+                           href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+                  {% elseif  name is same as 'fourth column' %}
+
+                    {% for item in fourth_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <a class="nav-main-link"
+                           href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+                  {% elseif  name is same as 'fifth column' %}
+
+                    {% for item in fifth_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <a class="nav-main-link"
+                           href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+                  {% elseif  name is same as 'sixth column' %}
+
+                    {% for item in sixth_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <a class="nav-main-link"
+                           href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+                  {% elseif  name is same as 'seventh column' %}
+
+                    {% for item in seventh_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <a class="nav-main-link"
+                           href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+                  {% elseif  name is same as 'eight column' %}
+
+                    {% for item in eight_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <a class="nav-main-link"
+                           href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+                  {% elseif  name is same as 'ninth column' %}
+
+                    {% for item in ninth_column.items %}
+                      <li
+                        class="header-dropdown-item nav-main-item {{ item.children ? 'children': '' }} {{ item.classes|join(' ') }}">
+                        <a class="nav-main-link"
+                           href="{{ item.link }}">{{ item.title }}</a>
+                        {% if item.children %}
+                          <ul class="nav-drop">
+                            {% for child in item.children %}
+                              <li class="nav-drop-item">
+                                <a href="{{ child.link }}">{{ child.title }}</a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        {% endif %}
+                      </li>
+
+                    {% endfor %}
+
+
+
+                  {% endif %}
+
+                </ul>
+              </div>
+
+            </li>
+
+          {% endfor %}
+        </ul>
+      </nav>
+
+
+        {% include 'parts/login-buttons-mobile.twig' %}
+
+    </div>
+
+
+
+
+
+  </div>
+</div>

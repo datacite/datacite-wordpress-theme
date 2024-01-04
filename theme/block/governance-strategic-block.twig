@@ -1,0 +1,28 @@
+{#
+/**
+ * Block Name: Governance strategic
+ */
+#}
+
+
+<div id="governance-strategic-{{ block.id }}" class="governance-strategic">
+  <div class="container">
+    {% if  fields.governance_strategic.columns %}
+    <div class="row">
+      {% for field in fields.governance_strategic.columns %}
+        <div class="col-md-12 col-lg-6 governance-strategic__column">
+          <div class="governance-strategic__column-content">
+            <h2 class="governance-strategic__title">{{ field.title }}</h2>
+            <p class="governance-strategic__description">
+              {{ field.description }}
+            </p>
+            <a class="button button--white" href="{{ field.button.url }}" target="_blank" rel="noopener noreferrer">
+              {{ field.button.title }}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    {%  endif %}
+  </div>
+</div>

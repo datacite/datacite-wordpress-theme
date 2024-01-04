@@ -1,0 +1,71 @@
+<footer class="footer">
+  <div class="container">
+    <div class="row footer__first-row">
+      <div class="col-sm-12 col-md-4 col-lg-3">
+        <a href="{{ site.url }}">
+          {% if options.footer.logo.url %}
+          <img class="footer__logo" src="{{ options.footer.logo.url }}" alt="{{ options.footer.logo.alt }}">
+          {%  endif %}
+        </a>
+
+        {% if options.footer.social %}
+        <div class="socials">
+          {% for field in options.footer.social %}
+            <a class="socials__link" href="{{ field.url }}" target="_blank">
+              <img class="socials__icon" src="{{ field.icon.url }}" alt="{{ field.icon.alt }}">
+            </a>
+          {% endfor %}
+        </div>
+
+        {% endif %}
+
+        {% if  options.footer.first_column_menu %}
+
+        <div class="footer__menu">
+          {{ options.footer.first_column_menu }}
+        </div>
+
+        {% endif %}
+      </div>
+
+      <div class="col-sm-12 col-md-8 col-lg-9">
+
+        {% if options.footer.column_menus %}
+        <div class="row">
+          {% for field in options.footer.column_menus %}
+
+            <div class="col-sm-6 col-md-6 col-lg-3">
+              <h3 class="footer__menu-header">{{ field.menu_header }}</h3>
+              <div class="footer__menu">
+                {{ field.menu }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row footer__second-row">
+      <div class="col-12">
+        <div class="footer__lower-menu">
+          {% if  options.footer.lower_menu %}
+            <div class="footer__menu footer__menu--horizontal">
+              {{ options.footer.lower_menu }}
+            </div>
+          {% endif %}
+
+          {% if  options.footer.terms_menu %}
+            <div class="footer__menu footer__menu--horizontal footer__menu--padding-right">
+              {{ options.footer.terms_menu }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+{{ function('wp_footer') }}
+</body>
+</html>

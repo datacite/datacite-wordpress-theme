@@ -1,0 +1,9 @@
+.metadata {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &--post {
+      margin-bottom: .5rem;
+    }
+}

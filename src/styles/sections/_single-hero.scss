@@ -1,0 +1,37 @@
+.single-hero {
+
+  position: relative;
+  padding-top: 6.25rem;
+  padding-bottom: 7.125rem;
+  background-color: $lightGray;
+
+  &__background {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+
+  &__title {
+    @include title();
+  }
+
+
+
+  &__desc {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    font-weight: $regular;
+    font-family: $body-font-family;
+    display: block;
+    width: 90%;
+    margin: 0 auto 3.75rem;
+
+    @media (min-width: 992px) {
+      width: 40%;
+    }
+
+  }
+
+}

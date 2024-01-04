@@ -1,0 +1,138 @@
+.single {
+
+
+
+  &__container {
+    position: relative;
+    display: block;
+    margin-top: -4rem;
+    background-color: $white;
+    padding-top: 4rem;
+  }
+
+  &__content {
+    overflow-wrap: break-word ;
+    line-height: 1.5rem;
+
+
+    a {
+
+      color: $blueColor;
+      text-decoration: underline;
+
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+
+      margin-bottom: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    ul, ol {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    ul li, ol li {
+      line-height: 1.5;
+      margin-bottom: .25rem;
+    }
+
+    @media (min-width: 992px) {
+      padding-right: 2rem;
+    }
+
+    p {
+      line-height: 1.5rem;
+      margin-bottom: .5rem;
+
+      b, strong {
+        line-height: 1.1;
+      }
+    }
+
+    blockquote  {
+      strong {
+        line-height: 1.1;
+      }
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  &__aside {
+
+    margin-top: 3rem;
+    padding-bottom: 2rem;
+
+    @media (min-width: 992px) {
+      margin-top: 0;
+    }
+
+    // Multiauthor plugin styles override
+
+    .m-a-box-container[max-width~="599px"] .m-a-box-content.m-a-box-profile .m-a-box-avatar {
+      align-self: flex-start !important;
+    }
+
+    .m-a-box-container {
+      border: none;
+      padding: 0;
+
+      .m-a-box-profile-multiauthor {
+        margin-bottom: 1rem !important;
+      }
+
+      .m-a-box-content {
+        padding: 0;
+
+        .m-a-box-data {
+          margin-top: 16px;
+        }
+
+      }
+
+      .m-a-box-content-middle {
+        align-items: flex-start !important;
+      }
+
+      .m-a-box-content .m-a-box-item {
+        align-self: flex-start !important;
+      }
+
+      .m-a-box-bio {
+        display: none !important;
+      }
+
+      .m-a-box-social {
+        display: none !important;
+      }
+
+      .m-a-box-related {
+        display: none !important;
+      }
+
+      .m-a-box-meta {
+        display: none !important;
+      }
+
+      .m-a-box-title {
+        @extend .author__single-name;
+
+        h5 {
+          font-weight: 700;
+        }
+      }
+
+    }
+
+  }
+}

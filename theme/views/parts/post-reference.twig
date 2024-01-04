@@ -1,0 +1,19 @@
+{% if fields.post.reference %}
+<div class="reference">
+
+  <h2 class="reference__title"> {{ __('Reference') }}</h2>
+  <div class="reference__container">
+    {% set count = 1 %}
+    {% for field in fields.post.reference %}
+      <div class="reference__item">
+        <span class="reference__count">{{ count }}.</span>
+        <h4 class="reference__item-title"> {{ field.title }}</h4>
+        <a class="reference__item-link" href="{{ field.url }}">{{ field.url }}</a>
+      </div>
+      {% set count = count + 1 %}
+
+    {% endfor %}
+  </div>
+
+</div>
+{% endif %}

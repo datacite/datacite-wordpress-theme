@@ -1,0 +1,105 @@
+@function rem-calc($size) {
+  $remSize: $size / $base-font-size;
+  @return #{$remSize}rem;
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+@mixin flexible($firstWrapOn, $per, $from, $to) {
+  @for $i from $from to $to {
+    @include breakpoint(#{$firstWrapOn - ($i - 1)*$per} down) {
+      max-width: $per*($to - $i)+px;
+    }
+  }
+}
+
+@mixin button() {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: $header-font-family;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none!important;
+  background-color: transparent;
+  color: $blueColor;
+  padding: 14px 30px;
+  border-radius: 100px;
+  border: 1.5px solid $blueColor;
+  transition: all 0.3s ease;
+
+  &:disabled {
+    background-color: $blueColor;
+    color: rgba($white,.5);
+    border-color: $blueColor;
+  }
+
+  &:hover {
+    background-color: $blueColor;
+    color: $white;
+  }
+
+  &__icon {
+    width: 92px;
+    margin-left: 6px;
+    margin-top: -1px;
+  }
+
+  & > * {
+    pointer-events: none;
+  }
+
+
+}
+
+@mixin title(){
+    font-size: 2rem;
+    line-height: 2.75rem;
+    font-weight: $bold;
+    font-family: $header-font-family;
+    margin-bottom: 2rem;
+
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+      line-height: 3.5rem;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 3.5rem;
+      line-height: 4.5rem;
+    }
+}
+
+@mixin section-title($color: $primaryColor, $text-align: center){
+  font-size: 2.5rem;
+  font-weight: $bold;
+  line-height: 3.875rem;
+  text-align: $text-align;
+  color: $color;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 992px) {
+    text-align: left;
+  }
+}
+
+@mixin full-width-section() {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-right:-50vw;
+  margin-left: -50vw;
+
+}

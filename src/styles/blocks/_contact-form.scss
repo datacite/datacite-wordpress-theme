@@ -1,0 +1,113 @@
+.contact-form {
+  background-color: $accentColor;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  @include full-width-section();
+
+  @media (min-width: 768px) {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+  }
+
+  &__title {
+    @include section-title()
+  }
+
+  &__social-title {
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: $medium;
+    font-family: $header-font-family;
+    margin-bottom: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  &__form {
+
+    .col-md-6, .col-12 {
+      margin-bottom: 2.25rem;
+    }
+
+    label {
+      width: 100%;
+      color: $primaryColor;
+      font-weight: $medium;
+      font-size: 1rem;
+      display: block;
+      font-family: $header-font-family;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 0.5rem;
+      display: block;
+      padding: 0.9rem 0.5rem;
+      background-color: rgba($primaryColor, .1);
+      border: none;
+    }
+
+    textarea {
+      width: 100%;
+      margin-top: 0.5rem;
+      background-color: rgba($primaryColor, .1);
+      border: none;
+      padding: 0.85rem 0.5rem;
+    }
+
+    .button-container {
+      margin-bottom: 0;
+
+      p {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .wpcf7-submit {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: $header-font-family;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 500;
+      text-align: center;
+      background-color: $white;
+      color: $blueColor;
+      padding: 14px 30px;
+      border-radius: 100px;
+      border: 1.5px solid $white;
+      transition: all 0.3s ease;
+      width: fit-content;
+    }
+  }
+}
+
+.acf-block-preview {
+
+  .contact-form {
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      padding-top: 3rem;
+      padding-bottom: 1rem;
+    }
+
+    .container {
+      padding-right: 0;
+      padding-left: 1.5rem;
+    }
+
+    &__title {
+      @include section-title();
+      font-size: 1.5rem;
+      font-family: $header-font-family;
+    }
+  }
+}
+

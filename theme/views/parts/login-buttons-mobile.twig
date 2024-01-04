@@ -1,0 +1,14 @@
+<div class="header__button-container">
+  {% set register_url = function('wp_registration_url') %}
+  {% set register_name = __('Become a member') %}
+
+  <a href="{{ options.login.register_url ? options.login.register_url : register_url }}"
+     class="button  header__button-member--mobile">{{ options.login.register_button ? options.login.register_button : register_name }}</a>
+
+  {% set login_url = function('wp_login_url') %}
+  {% set login_name = __('Sign in') %}
+
+
+  <a href="{{ options.login.login_url ? options.login.login_url : login_url }}"
+     class="button header__button-sign header__button-sign--mobile">{{ options.login.login_button ? options.login.login_button : login_name }}</a>
+</div>

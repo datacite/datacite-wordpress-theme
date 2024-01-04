@@ -1,0 +1,48 @@
+.wpcf7 form .wpcf7-response-output {
+  margin: 2em 0.5em 1em;
+  padding: 1em;
+  border: none;
+  background-color: red;
+  color: $white;
+
+}
+
+.wpcf7 form.init .wpcf7-response-output,
+.wpcf7 form.resetting .wpcf7-response-output,
+.wpcf7 form.submitting .wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  border: none;
+  background-color: green;
+}
+
+.wpcf7 form.failed .wpcf7-response-output,
+.wpcf7 form.aborted .wpcf7-response-output {
+  border: none;
+  background: red;
+  color: $white;
+}
+
+.wpcf7 form.spam .wpcf7-response-output {
+  border: none;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.unaccepted .wpcf7-response-output,
+.wpcf7 form.payment-required .wpcf7-response-output {
+  border: none;
+}
+
+.wpcf7-not-valid-tip {
+  background: red;
+  color: $white;
+  margin-top: .75rem;
+  padding: .625rem .3125rem;
+}
+
+
+
+
+

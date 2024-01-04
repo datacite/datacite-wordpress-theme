@@ -1,0 +1,192 @@
+{#
+/**
+ * Block Name: Front Page Hero
+ */
+#}
+
+<div id="front-page-hero-{{ block.id }}" class="front-page-hero">
+  <canvas id="tsparticles"></canvas>
+  <div class="front-page-hero__news">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 front-page-hero__index position-relative">
+          {% if fields.hero.news.title %}
+            <h3 class="front-page-hero__news-title">{{ fields.hero.news.title }}</h3>
+          {% endif %}
+          {% if news %}
+            <div class="front-page-hero__slider swiper">
+              <div class="swiper-wrapper">
+                {% for post in news %}
+                  <div class="swiper-slide">
+                    <a class="front-page-hero__post-link" href="{{ post.link }}">
+                      <p class="front-page-hero__post-title">{{ post.post_title }}</p>
+                      <span class="front-page-hero__post-date">{{ post.post_date |date('F j, Y') }}</span>
+                    </a>
+
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-6 front-page-hero__column front-page-hero__index">
+        {% if fields.hero.title %}
+          <h1 class="front-page-hero__title">{{ fields.hero.title }}</h1>
+        {% endif %}
+        {% if fields.hero.description %}
+          <p class="front-page-hero__desc">{{ fields.hero.description }}</p>
+        {% endif %}
+
+        {% if fields.hero.button.url %}
+          <a class="button button--white" href="{{ fields.hero.button.url }}" {% if fields.hero.button.target %}target="_blank"{% endif %} rel="noopener noreferrer">
+            {{ fields.hero.button.title }}
+          </a>
+        {% endif %}
+      </div>
+      <div class="col-md-12 col-lg-6 front-page-hero__column front-page-hero__index">
+
+        {% if fields.hero.columns %}
+          <div class="row">
+            {% for field in fields.hero.columns %}
+              {% if  fields.hero.column_count  is same as 'three'%}
+              <div class="col-6 col-sm-6 col-md-4 col-lg-4 front-page-hero__icon-box">
+                <img src="{{ field.icon.url }}" class="front-page-hero__icon" alt="{{ field.icon.alt }}">
+                <h3 class="front-page-hero__column-title">{{ field.title }}</h3>
+                <p class="front-page-hero__column-desc">{{ field.description }}</p>
+              </div>
+
+              {% elseif  fields.hero.column_count  is same as 'two' %}
+                <div class="col-6 col-sm-6 col-md-6 col-lg-6 front-page-hero__icon-box">
+                  <img src="{{ field.icon.url }}" class="front-page-hero__icon" alt="{{ field.icon.alt }}">
+                  <h3 class="front-page-hero__column-title">{{ field.title }}</h3>
+                  <p class="front-page-hero__column-desc">{{ field.description }}</p>
+                </div>
+
+              {% else %}
+                <div class="col-6 col-sm-6 col-md-4 col-lg-4 front-page-hero__icon-box">
+                  <img src="{{ field.icon.url }}" class="front-page-hero__icon" alt="{{ field.icon.alt }}">
+                  <h3 class="front-page-hero__column-title">{{ field.title }}</h3>
+                  <p class="front-page-hero__column-desc">{{ field.description }}</p>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ---- tsparticles container ---- */
+  #tsparticles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+</style>
+<script>
+
+  var mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var loadedParticles = false;
+
+  setInterval(function(){
+
+    if ( loadedParticles || mediaQuery.matches ) {
+      return;
+    }
+
+    tsParticles.load("tsparticles", {
+    fps_limit: 60,
+    interactivity: {
+      detect_on: "canvas",
+      events: {
+        onclick: { enable: true, mode: "pause" },
+        resize: true
+      },
+      modes: {
+        bubble: { distance: 400, duration: 2, opacity: 0.2, size: 40, speed: 3 },
+        grab: { distance: 400, line_linked: { opacity: 0.2 } },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 },
+        repulse: { distance: 200, duration: 0.4 }
+      }
+    },
+    particles: {
+      color: { value: "#E4F4FA" },
+      line_linked: {
+        color: "#E4F4FA",
+        distance: 150,
+        enable: true,
+        opacity: 0.2,
+        width: 1
+      },
+      move: {
+        attract: { enable: false, rotateX: 600, rotateY: 1200 },
+        bounce: false,
+        direction: "none",
+        enable: true,
+        out_mode: "out",
+        random: false,
+        speed: 2,
+        straight: false
+      },
+      number: { density: { enable: true, value_area: 800 }, value: 80 },
+      opacity: {
+        anim: { enable: false, opacity_min: 0.1, speed: 1, sync: false },
+        random: false,
+        value: 0.2
+      },
+      shape: {
+        character: {
+          fill: false,
+          font: "Verdana",
+          style: "",
+          value: "*",
+          weight: "400"
+        },
+        image: {
+          height: 100,
+          replace_color: true,
+          src: "images/github.svg",
+          width: 100
+        },
+        polygon: { nb_sides: 5 },
+        stroke: { color: "#000000", width: 0 },
+        type: "circle"
+      },
+      size: {
+        anim: { enable: false, size_min: 0.1, speed: 40, sync: false },
+        random: true,
+        value: 5
+      }
+    },
+    polygon: {
+      draw: { enable: false, lineColor: "#E4F4FA", lineWidth: 0.5 },
+      move: { radius: 10 },
+      scale: 1,
+      type: "none",
+      url: ""
+    },
+    retina_detect: true
+  });
+
+    loadedParticles = true;
+
+  }, 250 );
+
+</script>

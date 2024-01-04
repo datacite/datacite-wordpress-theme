@@ -1,0 +1,24 @@
+<main class="single">
+  <div class="container single__container">
+    <div class="row">
+      <main class="col-lg-9">
+        <div class="single__content">
+          {{ post.content }}
+          {% include 'parts/post-reference.twig' %}
+        </div>
+        {% include 'parts/post-navigation.twig' %}
+      </main>
+
+      <aside class="col-lg-3 single__aside">
+        {{ function('authorship_render_box', '') }}
+        {# {% include 'parts/author.twig' %} #}
+        {% include 'parts/social-share.twig' %}
+        {% include 'parts/post-cite.twig' %}
+        {% include 'parts/badge-counter.twig' %}
+      </aside>
+    </div>
+
+    {% include 'parts/post-related.twig' %}
+
+  </div>
+</main>

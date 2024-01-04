@@ -1,0 +1,43 @@
+
+// Grid
+$min-width: 320px;
+$max-width: 1248px;
+$gap: 24px;
+$columns: 12;
+$breakpoints: small false 767 small, medium 768 1023 medium, large 1024 false large;
+$column-name: "column";
+$offset-name: "offset";
+
+// Spaces
+$space-between-desktop: 168px;
+$space-between-mobile: 128px;
+$padding-mobile: 12px;
+$padding-desktop: 24px;
+
+// Typo
+$base-font-size: 16px;
+$base-line-height: rem-calc(19px);
+$body-font-family: 'Barlow', sans-serif;
+$header-font-family:'DM Sans', sans-serif;
+
+// Primary colors
+$black: #000;
+$white: #fff;
+$primaryColor: #243B54;
+$darkBlueColor: #037AAD;
+$blueColor: #0071B2;
+$accentColor: #00B1E2;
+$lightGray: #F7FAFC;
+
+
+// Font weights
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+
+// Box shadow
+
+$columnShadow: 0px 28px 36px -10px rgba(13, 96, 212, 0.08);
+

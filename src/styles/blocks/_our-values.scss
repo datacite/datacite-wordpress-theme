@@ -1,0 +1,277 @@
+.our-values {
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+  background-color: $accentColor;
+
+  @include full-width-section();
+
+  @media (min-width: 768px) {
+    padding-top: 7.5rem;
+
+  }
+  @media (min-width: 992px) {
+    padding-bottom: 7rem;
+  }
+
+  &__title {
+    @include section-title();
+
+  }
+
+  &__column {
+
+    &--left {
+      margin-top: 5rem;
+      position: relative;
+      margin-bottom: 3rem;
+      @media (min-width: 992px) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__tab-container {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+    border-top: 1px solid $white;
+
+    &:last-of-type {
+
+      @media (min-width: 992px) {
+        border-bottom: 1px solid $white;
+      }
+    }
+  }
+
+  &__tab {
+    font-size: 1.75rem;
+    line-height: 2rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    font-weight: $medium;
+
+    @media (min-width: 768px) {
+      font-size: 2.25rem;
+      line-height: 2.875rem;
+    }
+
+    .fa-plus {
+      display: inline;
+    }
+    .fa-minus {
+      display: none;
+    }
+
+    &.active {
+      .fa-plus {
+        display: none;
+      }
+      .fa-minus {
+        display: inline;
+      }
+    }
+
+    .fa {
+
+      font-size: 1rem;
+      line-height: 2rem;
+      float: right;
+
+      @media (min-width: 768px) {
+        line-height: 2.875rem;
+      }
+
+    }
+
+  }
+
+  &__tab-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity .5s ease-out;
+
+    &.show-content {
+      opacity: 1;
+      height: auto;
+    }
+  }
+
+  &__tab-con {
+
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity .5s ease-out;
+
+    &.show-content {
+      opacity: 1;
+      height: auto;
+    }
+  }
+
+  &__number-container {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $primaryColor;
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    @media (min-width: 560px) {
+      width: 8.5rem;
+      height: 8.5rem;
+    }
+
+    @media (min-width: 768px) {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+
+  &__number {
+    font-size: 2rem;
+    color: $white;
+    line-height: 4.875;
+    font-family: $header-font-family;
+
+    @media (min-width: 560px) {
+      font-size: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      font-size: 3.75rem;
+    }
+  }
+
+  &__image1 {
+    clip-path: url(#values1);
+    margin-top: 2rem;
+  }
+
+  &__image2 {
+
+    clip-path: url(#values2);
+    margin-top: 2rem;
+
+
+  }
+
+  &__image3 {
+
+    clip-path: url(#values3);
+    margin-top: 2rem;
+
+  }
+
+  &__image4 {
+
+    clip-path: url(#values4);
+    margin-top: 2rem;
+
+  }
+
+  &__image5 {
+
+    clip-path: url(#values5);
+    margin-top: 2rem;
+
+  }
+
+
+  &__button-container {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    @media (min-width: 992px) {
+
+      margin-top: 4rem;
+      margin-bottom: 0;
+
+    }
+  }
+}
+
+.acf-block-preview {
+
+  .our-values {
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
+
+    .container {
+
+      padding-left: 1rem;
+      padding-right: 0;
+
+    }
+
+    &__title {
+      @include section-title();
+      font-size: 2rem;
+      font-family: $header-font-family;
+    }
+
+    &__column {
+
+      &--right {
+        padding-right: 3rem;
+      }
+    }
+
+    &__tab-container {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-top: 1px solid $white;
+
+      &:last-of-type {
+
+        @media (min-width: 992px) {
+          border-bottom: 1px solid $white;
+        }
+      }
+    }
+
+    &__tab {
+      font-size: 1.25rem;
+      font-family: $header-font-family;
+
+      @media (min-width: 768px) {
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+      }
+    }
+
+    &__tab-content {
+
+      font-family: $body-font-family;
+    }
+
+    &__tab-con {
+
+      font-size: 1rem;
+
+    }
+
+
+  }
+
+}

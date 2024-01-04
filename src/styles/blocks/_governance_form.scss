@@ -1,0 +1,127 @@
+.governance-form {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  @include full-width-section();
+
+  @media (min-width: 768px) {
+    padding-bottom: 7.5rem;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    font-weight: $bold;
+    font-family: $header-font-family;
+    margin-bottom: 3.75rem;
+
+    @media (min-width: 768px) {
+      font-size: 3rem;
+      line-height: 3.875rem;
+    }
+  }
+
+  &__form {
+
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    .col-md-6, .col-12 {
+      margin-bottom: 2.25rem;
+    }
+
+    label {
+      width: 100%;
+      color: $primaryColor;
+      font-weight: $medium;
+      font-size: 1rem;
+      display: block;
+      font-family: $header-font-family;
+    }
+
+    input {
+      width: 100%;
+      margin-top: 0.5rem;
+      display: block;
+      padding: 0.9rem 0.5rem;
+      background-color: rgba($primaryColor, .1);
+      border: none;
+    }
+
+    textarea {
+      width: 100%;
+      margin-top: 0.5rem;
+      background-color: rgba($primaryColor, .1);
+      border: none;
+      padding: 0.85rem 0.5rem;
+    }
+
+
+    .button-container {
+      margin-bottom: 0;
+
+      p {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .wpcf7-submit {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      font-family: $header-font-family;
+      font-size: 14px;
+      line-height: 20px;
+      font-weight: 500;
+      text-align: center;
+      background-color: $blueColor;
+      color: $white;
+      padding: 14px 30px;
+      border-radius: 100px;
+      border: 1.5px solid $blueColor;
+      transition: all 0.3s ease;
+      width: fit-content;
+    }
+
+  }
+
+  &__button {
+    display: flex;
+  }
+
+  &__button.hide {
+    display: none;
+  }
+}
+
+.acf-block-preview {
+  .governance-form {
+    width: 100%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+
+    @media (min-width: 768px) {
+      padding-top: 2.25rem;
+      padding-bottom: 2.25rem;
+    }
+
+    .container {
+      padding: 0;
+    }
+
+    &__title {
+      @media (min-width: 768px) {
+        font-size: 2rem;
+        line-height: 2.875rem;
+        text-align: left;
+      }
+    }
+  }
+}
+
+

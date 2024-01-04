@@ -1,0 +1,36 @@
+{% if(options.social_share.facebook.value or options.social_share.twitter.value or options.social_share.linkedin.value or options.social_share.mastodon.value ) %}
+<div class="social-share">
+  <h4 class="social-share__title">{{ __('Share this:') }}</h4>
+  <div class="social-share__container">
+
+
+    {% if(options.social_share.twitter.value) %}
+      <a class="m-r-16" href="https://twitter.com/share?url={{ post.link|url_encode }}">
+        <img class="social-share__image" src="{{ options.social_share.twitter.icon.url }}" alt=" {{ options.social_share.twitter.icon.alt }}">
+      </a>
+    {% endif %}
+
+
+    {% if(options.social_share.mastodon.value) %}
+      <a class="m-r-16" href="https://mastodonshare.com/?url={{ post.link|url_encode }}">
+        <img class="social-share__image" src="{{ options.social_share.mastodon.icon.url }}" alt=" {{ options.social_share.mastodon.icon.alt }}">
+      </a>
+    {% endif %}
+
+    {% if(options.social_share.linkedin.value) %}
+      <a class="m-r-16" href="https://www.linkedin.com/sharing/share-offsite/?url={{ post.link|url_encode }}">
+        <img class="social-share__image" src="{{ options.social_share.linkedin.icon.url }}" alt=" {{ options.social_share.linkedin.icon.alt }}">
+      </a>
+    {% endif %}
+
+    {% if(options.social_share.facebook.value) %}
+      <a class="m-r-16" href="https://www.facebook.com/sharer.php?u={{ post.link|url_encode }}">
+        <img class="social-share__image" src="{{ options.social_share.facebook.icon.url }}" alt=" {{ options.social_share.facebook.icon.alt }}">
+      </a>
+    {% endif %}
+
+  </div>
+</div>
+{%  endif %}
+
+

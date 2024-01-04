@@ -1,0 +1,10 @@
+.socials {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3.5rem;
+
+  &__link {
+    display: block;
+    margin-right: 1rem;
+  }
+}

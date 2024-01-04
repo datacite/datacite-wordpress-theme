@@ -1,0 +1,28 @@
+{% if fields.post.badge_counter %}
+<div class="badge-counter">
+  <h4 class="badge-counter__title">Citation badge-counter: </h4>
+  <div class="badge-counter__content">
+    <div class="badge-counter__row">
+      <div class="badge-counter__icon-container">
+        {% include 'svg/citations_icon.svg' %}
+        <span class="badge-counter__row-name">Citations</span>
+      </div>
+      <span class="badge-counter__value">27</span>
+    </div>
+    <div class="badge-counter__row">
+      <div class="badge-counter__icon-container">
+        {% include 'svg/download_icon.svg' %}
+        <span class="badge-counter__row-name">Views</span>
+      </div>
+      <span class="badge-counter__value">367</span>
+    </div>
+    <div class="badge-counter__row">
+      <div class="badge-counter__icon-container">
+        {% include 'svg/views_icon.svg' %}
+        <span class="badge-counter__row-name">Downloads</span>
+      </div>
+      <span class="badge-counter__value">208</span>
+    </div>
+  </div>
+</div>
+{% endif %}

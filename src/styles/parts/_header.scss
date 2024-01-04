@@ -1,0 +1,106 @@
+.header {
+  background-color: $primaryColor;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  z-index: 1000;
+  transition: top 0.45s ease;
+
+  @media (min-width: 992px) {
+    padding-top: 1.5rem;
+    height: 98px;
+    padding-bottom: 1.5rem;
+  }
+
+  &.scrolled-up {
+    top: -64px;
+    @media (min-width: 992px) {
+      top: -98px;
+    }
+  }
+
+  &__button-container {
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 2.5rem 0 1.5rem;
+    max-width: 33.75rem;
+
+    @media (min-width: 768px) {
+      max-width: 45rem;
+    }
+
+    @media (min-width: 992px) {
+
+    display: none;
+    }
+  }
+
+  &__button-member {
+
+    &--mobile {
+
+      display: flex;
+      margin-bottom: 1.5rem;
+      width: 100%;
+
+      @media (min-width: 992px) {
+
+        display: none!important;
+
+      }
+
+    }
+
+    &--desktop {
+
+      display: none!important;
+
+      @media (min-width: 992px) {
+          display: flex!important;
+          margin-right: 1rem;
+      }
+
+    }
+  }
+  &__button-sign {
+
+    &--mobile {
+
+          display: flex!important;
+      @media (min-width: 992px) {
+
+        display: none!important;
+
+      }
+
+    }
+
+    &--desktop {
+
+      display: none!important;
+
+      @media (min-width: 992px) {
+        display: flex!important;
+      }
+    }
+
+  }
+
+  &__logo {
+
+    max-width: 9rem;
+
+    @media (min-width: 992px) {
+
+      max-width: 12rem;
+
+    }
+
+  }
+}

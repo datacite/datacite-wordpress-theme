@@ -1,0 +1,39 @@
+{#
+/**
+ * Block Name: Contact Form
+ */
+#}
+
+<div id="contact-form-{{ block.id }}" class="contact-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        {% if  fields.contact_form.title %}
+        <h2 class="contact-form__title"> {{ fields.contact_form.title }}</h2>
+        {% endif %}
+        {% if  fields.contact_form.social_title %}
+        <h4 class="contact-form__social-title">{{ fields.contact_form.social_title }}</h4>
+        {% endif %}
+
+        {% if  fields.contact_form.socials %}
+        <div class="socials">
+          {% for field in fields.contact_form.socials %}
+            <a class="socials__link" href="{{ field.url }}" target="_blank">
+              <img class="socials__icon" src="{{ field.icon.url }}" alt="{{ field.icon.alt }}">
+            </a>
+          {% endfor %}
+        </div>
+
+        {% endif %}
+
+
+       </div>
+      {%  if  fields.contact_form.form_shortcode %}
+      <div class="col-lg-8 contact-form__form">
+          {{ fields.contact_form.form_shortcode }}
+      </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>

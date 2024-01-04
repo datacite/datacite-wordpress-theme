@@ -1,0 +1,147 @@
+.navigation {
+  color: $primaryColor;
+  transition: height .3s ease;
+  background-color: $white;
+  position: absolute;
+  overflow: hidden;
+  top: 6.125rem;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0px 0.75rem 1.5rem rgba($black, 0.08);
+  display: none;
+
+  @media (min-width: 992px) {
+
+    display: none;
+
+    &.open {
+      display: block!important;
+    }
+
+  }
+
+  &__container {
+
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  &__column:nth-child(2) {
+
+    padding-right: 2rem;
+  }
+
+  &__column-content {
+
+    img {
+      margin-bottom: 2rem;
+    }
+
+    h2, h3, h4, h5, h6 {
+
+      font-size: 1.375rem;
+      font-weight: $bold;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+
+      line-height: 1.875;
+      font-size: 1.125rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__header-menu {
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+
+        margin: 0 0  2rem 0;
+
+        a {
+          display: block;
+          width: 100%;
+          cursor: pointer;
+          font-size: 0.875rem;
+          font-family: $header-font-family;
+          font-weight: $regular;
+          transition: all .1s ease;
+
+          &:hover {
+            color: $blueColor;
+            font-weight: $bold;
+          }
+        }
+      }
+    }
+  }
+
+  &__header-blog-title {
+    font-size: 1.25rem;
+    line-height: 1;
+    color: $accentColor;
+  }
+
+  .tab-content {
+    margin-top: 2rem;
+  }
+
+  .nav-tabs {
+    border: 0;
+  }
+
+  .nav-link {
+    border: 0;
+    font-size: 1rem;
+    font-family: $header-font-family;
+    font-weight: $bold;
+    color: $primaryColor;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 4rem;
+    transition: all .3s ease-out;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid $primaryColor;
+    }
+
+    &.active {
+      border-bottom: 1px solid $primaryColor;
+    }
+  }
+
+}
+
+.navigation__header-menu {
+
+  li.header-dropdown-item.children.visible {
+    a {
+      color: $blueColor;
+
+    }
+  }
+}
+
+.header-dropdown__info {
+  display: none;
+
+  &.opened {
+    display: block;
+  }
+}
+
+
+
+
+
+

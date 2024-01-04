@@ -1,0 +1,38 @@
+{% for field in posts %}
+  <article id="post{{ field.ID }}" class="{{ field.post_class( 'post' ) }}">
+
+    {# <div class="metadata metadata--post">
+      <span class="blog__calendar-icon m-b-16 m-r-16">
+        {% include 'svg/calendar_icon.svg' %}
+      </span>
+      <span class="date m-b-16 m-r-16">{{ field.date('F jS, Y') }}</span>
+      <a href="{{ field.author.link }}">
+        <img class="blog__author-icon m-b-16 m-r-16" src="{{ field.author.author.image.url }}" alt="{{ field.post.author.image.title }}">
+      </a>
+      <span class="blog__author-name m-b-16 m-r-16"><a href="{{ field.author.link }}">{{ field.author.first_name }} {{ field.author.last_name }}</a></span>
+      <div class="categories m-b-16 m-r-8">
+        {% for category in field.categories %}
+
+          <a href="{{ function('get_category_link', category.term_id) }}">
+            <span class="category-tab m-b-8 m-r-8">{{ category.name }}</span>
+          </a>
+        {% endfor %}
+
+      </div>
+      <span class="read-time m-b-16 m-r-16">{{ field.post_content | estimated_time }} {{ __('min Read') }}</span>
+    </div> #}
+
+    <a class="post__link" href="{{ field.link }}">
+      <h3 class="post__title">
+        {{ field.post_title | striptags }}
+      </h3>
+
+      <div class="post__content">{{ field.post_content | truncate(40) | striptags }}</div>
+
+      <span class="blog__date">{{ field.date('F jS, Y') }}</span>
+      <span class="post__arrow">
+        {% include 'svg/post_arrow.svg' %}
+      </span>
+    </a>
+  </article>
+{% endfor %}

@@ -1,0 +1,22 @@
+.link {
+  $self: &;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover &__href {
+    margin-right: 1.25rem;
+  }
+
+  &__href {
+    margin-right: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: $blueColor;
+    font-weight: $medium;
+    transition: all .3s ease-in-out;
+  }
+}

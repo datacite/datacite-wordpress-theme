@@ -1,0 +1,32 @@
+{% if fields.post.related %}
+<div class="related">
+  <h2 class="related__title">Related posts</h2>
+  <div class="row">
+    {% for field in fields.post.related %}
+      <div class="col-sm-12 col-md-6 col-lg-4 related__column">
+        <div class="metadata">
+          <span class="calendar-icon m-b-16 m-r-16">
+              {% include 'svg/calendar_icon.svg' %}
+          </span>
+          <span class="date m-b-16 m-r-16">{{ field.date('F jS, Y') }}</span>
+          <img class="author__icon m-b-16 m-r-16" src="{{ field.author.author.image.url }}" alt="">
+          <span class="author__name m-b-16 m-r-16">{{ field.author.first_name }} {{ field.author.last_name }}</span>
+        </div>
+        <a href="{{ field.link }}">
+          <h3 class="related__post-title">{{ field.title }}</h3>
+        </a>
+        <div class="related__content">
+          {{ field.content|truncate(20) }}
+        </div>
+        <div class="metadata">
+          {% for category in field.categories %}
+            <span class="category-tab m-b-16 m-r-8">{{ category.name }}</span>
+          {% endfor %}
+          <span class="read-time m-b-16 m-r-16">{{ post.post_content | estimated_time }} {{ __('min Read') }}</span>
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
+{% endif %}

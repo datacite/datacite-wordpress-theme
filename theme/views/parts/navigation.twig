@@ -1,0 +1,511 @@
+<nav class="navigation">
+  <div class="container navigation__container">
+
+
+    <div class="row">
+      <div class="col-12">
+        <ul class="navigation__list nav nav-tabs" id="navTabs" role="tablist" aria-label="Navigation">
+          {% set count = 1 %}
+          {% for field in options.header.menu %}
+            <li class="navigation__nav-item nav-item" role="presentation">
+              <a tabindex="0" class="navigation__nav-link nav-link {{ count == 1 ? 'active' : ' ' }}"
+                      id="{{ field.menu_label|replace({' ': ''})|lower }}-tab" data-bs-toggle="tab"
+                      data-bs-target="#{{ field.menu.name|replace({' ': ''})|lower }}" type="button" role="tab"
+                      aria-controls="{{ field.menu.name|replace({' ': ''})|lower }}"
+                      aria-selected="true">{{ field.menu_label }}</a>
+            </li>
+
+
+            {% set count = count + 1 %}
+          {% endfor %}
+
+          {% if options.header.blog.visible %}
+          <li class="navigation__nav-item nav-item" role="presentation">
+            <a tabindex="0" class="navigation__nav-link nav-link"
+                    id="blog-tab" data-bs-toggle="tab"
+                    data-bs-target="#blogcolumn" type="button" role="tab"
+                    aria-controls="blogcolumn"
+                    aria-selected="true">{{ options.header.blog.title }}</a>
+          </li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </div>
+
+    <div class="navigation__tab-content tab-content" id="myTabContent">
+      {% set count = 1 %}
+      {% for field in options.header.menu %}
+        <div class="navigation__tab-pane tab-pane fade {{ count == 1 ? 'show active' : ' ' }}"
+             id="{{ field.menu.name|replace({' ': ''})|lower }}" role="tabpanel"
+             aria-labelledby="{{ field.menu.name|replace({' ': ''})|lower }}-tab">
+          <div class="row">
+            {% set menu_label = field.menu.name|lower %}
+                          <div class="col-lg-3 navigation__column">
+                            <div class="navigation__column-content">
+                              <div class="navigation__header-menu">
+
+                                {% if menu_label is same as 'first column' %}
+                                  {% include 'views/parts/navigation-first-column.twig' %}
+
+                                {% elseif menu_label is same as 'second column' %}
+                                  {% include 'views/parts/navigation-second-column.twig' %}
+
+                                {% elseif menu_label is same as 'third column' %}
+
+                                  {% include 'views/parts/navigation-third-column.twig' %}
+
+                                {% elseif menu_label is same as 'fourth column' %}
+                                  {% include 'views/parts/navigation-fourth-column.twig' %}
+
+                                {% elseif menu_label is same as 'fifth column' %}
+                                  {% include 'views/parts/navigation-fifth-column.twig' %}
+
+                                {% elseif menu_label is same as 'sixth column' %}
+                                  {% include 'views/parts/navigation-sixth-column.twig' %}
+
+                                {% elseif menu_label is same as 'seventh column' %}
+                                  {% include 'views/parts/navigation-seventh-column.twig' %}
+
+                                {% elseif menu_label is same as 'eight column' %}
+                                  {% include 'views/parts/navigation-eight-column.twig' %}
+
+                                {% elseif menu_label is same as 'ninth column' %}
+                                  {% include 'views/parts/navigation-ninth-column.twig' %}
+
+
+
+                                {% endif %}
+
+
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-3 navigation__column">
+                            <div class="navigation__column-content">
+
+
+
+                              {# Condition for first column #}
+
+                              {% if menu_label is same as 'first column' %}
+                                {% set count_1 = 1 %}
+                                {% set has_children_col_one = false %}
+
+                                {% for item in first_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_one = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+
+                                {% if has_children_col_one %}
+                                  {% for item in first_column.items %}
+                                    <div data-current="{{ first_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_1 == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_1 = count_1 + 1 %}
+                                  {% endfor %}
+
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+
+                                {#                  End of condition for first column #}
+
+
+                                {#                 Condition for second column #}
+
+
+                              {% elseif menu_label is same as 'second column' %}
+                                {% set count_second = 1 %}
+                                {% set has_children_col_two = false %}
+
+                                {% for item in second_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_two = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+
+                                {% if has_children_col_two %}
+                                  {% for item in second_column.items %}
+                                    <div data-current="{{ second_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_second == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_second = count_second + 1 %}
+                                  {% endfor %}
+
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+
+
+                                {#                  End of condition for second column #}
+
+                                {#                  Condition for third column #}
+
+                              {% elseif menu_label is same as 'third column' %}
+                                {% set count_third = 1 %}
+                                {% set has_children_col_three = false %}
+
+                                {% for item in third_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_three = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% if has_children_col_three %}
+                                  {% for item in third_column.items %}
+                                    <div data-current="{{ third_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_third == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_third = count_third + 1 %}
+                                  {% endfor %}
+
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+
+                                {#                  End of condition for third column #}
+
+
+                                {#                  Condition for fourth column #}
+
+                              {% elseif menu_label is same as 'fourth column' %}
+                                {% set count_four = 1 %}
+                                {% set has_children_col_four = false %}
+
+                                {% for item in fourth_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_four = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% if has_children_col_four %}
+                                  {% for item in fourth_column.items %}
+                                    <div data-current="{{ fourth_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_four == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_four = count_four + 1 %}
+                                  {% endfor %}
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+
+                                {#                  End of condition for fourth column #}
+
+
+                                {#                  Condition for fifth column #}
+
+                              {% elseif menu_label is same as 'fifth column' %}
+                                {% set count_five = 1 %}
+                                {% set has_children_col_five = false %}
+
+                                {% for item in fifth_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_five = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% if has_children_col_five %}
+                                  {% for item in fifth_column.items %}
+                                    <div data-current="{{ fifth_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_five == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_five = count_five + 1 %}
+                                  {% endfor %}
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+
+                              {#                  End of condition for fifth column #}
+
+                              {#                  Condition for sixth column #}
+
+                              {% elseif menu_label is same as 'sixth column' %}
+                                {% set count_six = 1 %}
+                                {% set has_children_col_six = false %}
+
+                                {% for item in sixth_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_six = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% if has_children_col_six %}
+                                  {% for item in sixth_column.items %}
+                                    <div data-current="{{ sixth_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_six == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_six = count_six + 1 %}
+                                  {% endfor %}
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+                                {#                  End of condition for sixth column #}
+
+                                {#                   Condition for seventh column #}
+
+                              {% elseif menu_label is same as 'seventh column' %}
+
+
+                                {% set count_seven = 1 %}
+                                {% set has_children_col_seven = false %}
+
+                                {% for item in seventh_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_seven = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% if has_children_col_seven %}
+                                  {% for item in seventh_column.items %}
+                                    <div data-current="{{ seventh_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_seven == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_seven = count_seven + 1 %}
+                                  {% endfor %}
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+                                {#                  End of condition for seventh column #}
+
+                                {#                   Condition for eight column #}
+
+                              {% elseif menu_label is same as 'eight column' %}
+
+
+                                {% set count_eight = 1 %}
+                                {% set has_children_col_eight = false %}
+
+                                {% for item in eight_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_eight = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% if has_children_col_eight %}
+                                  {% for item in eight_column.items %}
+                                    <div data-current="{{ eight_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_eight == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_eight = count_eight + 1 %}
+                                  {% endfor %}
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+                                {#                  End of condition for eight column #}
+
+                                {#                   Condition for nine column #}
+
+                              {% elseif menu_label is same as 'ninth column' %}
+
+
+                                {% set count_nine = 1 %}
+                                {% set has_children_col_nine = false %}
+
+                                {% for item in ninth_column.items %}
+                                  {% if item.children %}
+                                    {% set has_children_col_nine = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% if has_children_col_nine %}
+                                  {% for item in ninth_column.items %}
+                                    <div data-current="{{ ninth_column|replace({' ': ''})|lower }}" id="{{ item.slug }}"
+                                         class="header-dropdown__info navigation__header-menu {{ count_nine == 1 ? 'opened': ' ' }}">
+                                      <ul class="nav-drop">
+                                        {% for child in item.children %}
+                                          <li class="nav-drop-item">
+                                            <a href="{{ child.link }}">{{ child.title }}</a>
+                                          </li>
+                                        {% endfor %}
+                                      </ul>
+                                    </div>
+                                    {% set count_nine = count_nine + 1 %}
+                                  {% endfor %}
+
+                                {% else %}
+
+
+                                  {% if field.image %}
+                                    <img src="{{ field.image.url }}" alt="">
+
+                                  {% elseif field.description %}
+                                    <div class="navigation__column-description">{{ field.description|wpautop }}</div>
+
+                                  {% endif %}
+                                {% endif %}
+                                {#                  End of condition for eight column #}
+
+                              {% endif %}
+
+
+                            </div>
+                          </div>
+                          <div class="col-lg-4 navigation__column">
+                            <div class="navigation__column-content">
+                              <div class="navigation__column-description">{{ field.third_field_description|wpautop }}</div>
+                              <div class="navigation__column-form">
+                                {{ field.form|shortcodes }}
+                              </div>
+                            </div>
+                          </div>
+          </div>
+        </div>
+        {% set count = count + 1 %}
+      {% endfor %}
+      {% if options.header.blog.visible %}
+      <div class="navigation__tab-pane tab-pane fade "
+           id="blogcolumn" role="tabpanel"
+           aria-labelledby="blogcolumn-tab">
+
+          <div class="row">
+
+           <div class="col-lg-12">
+             {% for field in options.header.blog.posts %}
+
+               <article class="post post--menu">
+                 <a href="{{ function('get_permalink', field.ID) }}">
+                   <h3 class="post__title"> {{ field.post_title }}</h3>
+                 </a>
+               </article>
+
+             {% endfor %}
+           </div>
+          </div>
+
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</nav>

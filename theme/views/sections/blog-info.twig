@@ -1,0 +1,31 @@
+{% if fields.blog.title %}
+<section class="blog-info">
+  <div class="container">
+    <div class="row d-flex">
+      <div class="d-flex align-items-center order-1 col-sm-12 col-lg-6">
+
+        <div class="blog-info__image-container">
+          {% if fields.blog.image.url %}
+          <img class="blog-info__image" src="{{ fields.blog.image.url }}" alt="{{ fields.blog.image.alt }}">
+          {% include 'svg/clipping-mask-blog.svg' %}
+        </div>
+        {% endif %}
+      </div>
+      <div class="d-flex flex-column align-items-start justify-content-center order-2 offset-lg-1 col-lg-5">
+        {% if fields.blog.title %}
+        <h2 class="blog-info__title">{{ fields.blog.title }}</h2>
+        {% endif %}
+        {% if fields.blog.description %}
+        <p class="blog-info__description">{{ fields.blog.description }}</p>
+        {% endif %}
+        {% if fields.blog.button.url %}
+        <div class="blog-info__button-container">
+
+          <a class="button button--white mx-auto" href="{{ fields.blog.button.url }}">{{ fields.blog.button.title }}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{%  endif %}

@@ -1,0 +1,10 @@
+<div class="single__navigation">
+  {% if post.prev.link %}
+  <a class="single__navigation-button-prev button m-r-16 m-l-16" href="{{ post.prev.link }}">{{ __('Previous post') }}</a>
+  {% endif %}
+
+  {% if post.next.link %}
+  <a class="single__navigation-button-next button m-r-16 m-l-16" href="{{ post.next.link }}">{{ __('Next post') }}</a>
+  {% endif %}
+</div>
+

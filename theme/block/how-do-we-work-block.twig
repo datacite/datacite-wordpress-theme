@@ -1,0 +1,38 @@
+{#
+/**
+ * Block Name: How do we work
+ */
+#}
+
+<div id="how-do-we-work-{{ block.id }}" class="how-do-we-work">
+  <div class="container">
+    <div class="row how-do-we-work__headline">
+      <div class="col-md-12 col-lg-9 d-flex justify-content-center justify-content-lg-start align-items-center">
+        {% if  fields.we_work.title %}
+        <h2 class="how-do-we-work__title mb-3 mb-lg-0">{{ fields.we_work.title }}</h2>
+        {% endif %}
+      </div>
+      <div  class="col-md-12 col-lg-3 d-flex justify-content-center justify-content-lg-end align-items-center">
+        {% if fields.we_work.button.url %}
+        <a class="button" href="{{ fields.we_work.button.url }}" {% if fields.we_work.button.target %}target="_blank"{% endif %} rel="noopener noreferrer">
+          {{ fields.we_work.button.title }}
+        </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if  fields.we_work.columns %}
+    <div class="row how-do-we-work__columns-container">
+      {% for field in fields.we_work.columns %}
+        <div class="col-sm-12 col-md-6 col-xl-3  how-do-we-work__column">
+          <div class="how-do-we-work__column-content">
+            <h3 class="how-do-we-work__column-title">{{ field.title }}</h3>
+            <p class="how-do-we-work__desc">{{ field.description }}</p>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</div>

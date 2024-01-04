@@ -1,0 +1,15 @@
+
+{% for field in results %}
+
+  <article id="post{{ field.ID }}" class="{{ field.post_class( 'post__search' ) }}">
+    <a class="post__link" href="{{ field.link }}">
+      <h3 class="post__title post__title--search">
+        {{ field.post_title }}
+      </h3>
+    </a>
+  </article>
+
+{% endfor %}
+
+
+

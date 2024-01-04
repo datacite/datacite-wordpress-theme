@@ -1,0 +1,15 @@
+<div class="tags m-b-64">
+  <h3 class="tags__title m-b-24">{{ __('Tags') }}</h3>
+  <div class="tags__container">
+    {% for tag in tags %}
+      <div class="tag-item m-r-8 m-b-8">
+        <a href="{{ tag.link }}">
+          <span class="tags__item-name">{{ tag.name }}</span>
+          <span class="tags__item-count">({{ tag.count }})</span>
+        </a>
+
+      </div>
+    {% endfor %}
+  </div>
+
+</div>

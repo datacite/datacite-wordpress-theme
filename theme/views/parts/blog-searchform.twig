@@ -1,0 +1,6 @@
+<div class="blog-searchform m-b-48">
+  <form role="search" method="get" id="blog-searchform" action="{{ site.link }}">
+      <input type="text" value="{{ function('get_search_query') }}" name="s" id="s"  placeholder="Search..." autocomplete="off">
+      <input type="submit" id="searchsubmit" class="searchsubmit" value="Search" />
+  </form>
+</div>

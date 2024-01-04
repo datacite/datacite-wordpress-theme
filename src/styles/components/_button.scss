@@ -1,0 +1,39 @@
+.button {
+
+  $self: &;
+  @include button();
+
+  &--primary {
+    background: $blueColor;
+    color: $white;
+    border: 1px solid $blueColor;
+
+    &:hover {
+      color: $white;
+      border: 1px solid $blueColor;
+      background: $blueColor;
+    }
+
+  }
+
+  &--white {
+    background: $white;
+    color: $primaryColor;
+    border: 1px solid $white;
+
+    &:hover {
+      border: 1px solid $blueColor;
+    }
+  }
+
+  &--white-ghost {
+    background: transparent;
+    color: $white;
+    border: 1px solid $white;
+
+    &:hover {
+      border: 1px solid $blueColor;
+    }
+  }
+
+}

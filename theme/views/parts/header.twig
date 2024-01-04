@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="{{ site.language }}">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ wp_title ? wp_title : site.name }}</title>
+
+  <meta name="viewport"
+        content="width=device-width, user-scalable=yes, initial-scale=1. maximum-scale=5, minimum-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  {{ options.additionals.head }}
+  {{ function('wp_head') }}
+</head>
+
+<body class="{{ body_class }}">
+{{ function('wp_body_open') }}
+{{ options.additionals.body }}
+
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 d-flex align-items-center justify-content-between">
+        <div class="header__logo-container d-flex align-items-center">
+          {% include 'parts/hamburger.twig' %}
+          {% include 'parts/logo.twig' %}
+        </div>
+
+        <div class="header__login-container d-flex align-items-center">
+          {% include 'parts/searchform.twig' %}
+          {% include 'parts/login-buttons.twig' %}
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {% include 'parts/navigation.twig' %}
+  {% include 'parts/navigation-mobile.twig' %}
+</header>

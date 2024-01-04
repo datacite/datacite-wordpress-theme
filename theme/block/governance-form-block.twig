@@ -1,0 +1,40 @@
+{#
+/**
+ * Block Name: Governance Form
+ */
+#}
+
+{% if is_preview %}
+  <p>I will only appear in the editor.</p>
+{% endif %}
+
+<div id="governance-form-{{ block.id }}" class="governance-form">
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+          {%  if fields.governance_form.title %}
+          <h2 class="governance-form__title text-center">{{ fields.governance_form.title }}</h2>
+          {% endif %}
+          {% if fields.governance_form.form %}
+          <div class="governance-form__form">
+            {{ fields.governance_form.form }}
+          </div>
+          {% endif %}
+
+          {% if fields.governance_form.button %}
+          <div class="governance-form__button-container d-flex justify-content-center">
+              <button class="button governance-form__button" >{{ fields.governance_form.button }}</button>
+          </div>
+          {%  endif %}
+        </div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
