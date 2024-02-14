@@ -115,7 +115,7 @@ docker-compose run --rm wpcli search-replace 'some-old-domain.pl' 'some-new-doma
 - premium plugins in the `plugins` folder in the `.zip` archive
 - all other plugins available in the WordPress plugin repository listed in the `plugins.txt` file or added in the `composer.json` file as
   **wpackagist** repository (https://wpackagist.org/)
-    - for example **W3 Total Cache** https://pl.wordpress.org/plugins/w3-total-cache/
+    - for example **W3 Total Cache** https://wordpress.org/plugins/w3-total-cache/
         - plugins.txt:
         ```
         w3-total-cache
