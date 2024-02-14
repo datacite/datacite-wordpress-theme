@@ -1,4 +1,5 @@
 [![Generic badge](https://img.shields.io/badge/verison-2.0-green.svg)](https://shields.io/)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/datacite/datacite-wordpress-theme/blob/main/README.md)
 
 ### Wymagania
 
@@ -67,7 +68,7 @@ cd src
 Zainstaluj pakiety
 
 ```
-npm install 
+npm install
 // lub
 yarn install
 ```
@@ -75,7 +76,7 @@ yarn install
 Uruchom gulpa
 
 ```
-gulp watch 
+gulp watch
 // lub
 yarn start
 ```
@@ -124,7 +125,7 @@ docker-compose run --rm wpcli search-replace 'some-old-domain.pl' 'some-new-doma
             "require": {
                 "php": "^7.1",
                 ...
-                "wpackagist-plugin/w3-total-cache":"2.1.1"        
+                "wpackagist-plugin/w3-total-cache":"2.1.1"
             }
         }
         ```

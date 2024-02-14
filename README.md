@@ -1,5 +1,8 @@
 [![Generic badge](https://img.shields.io/badge/verison-2.0-green.svg)](https://shields.io/)
 
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/datacite/datacite-wordpress-theme/blob/main/README.md)
+[![pl](https://img.shields.io/badge/lang-pl-red.svg)](https://github.com/datacite/datacite-wordpress-theme/blob/main/README.pl.md)
+
 ### Requirements
 
 - **Docker** - https://docs.docker.com/get-started/#download-and-install-docker
