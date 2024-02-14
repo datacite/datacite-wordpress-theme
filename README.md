@@ -1,39 +1,39 @@
 [![Generic badge](https://img.shields.io/badge/verison-2.0-green.svg)](https://shields.io/)
 
-### Wymagania
+### Requirements
 
 - **Docker** - https://docs.docker.com/get-started/#download-and-install-docker
 - **Node** - https://nodejs.org/en/download/
-- **Yarn** (opcjonalnie) - https://classic.yarnpkg.com/en/docs/install/#mac-stable
+- **Yarn** (optional) - https://classic.yarnpkg.com/en/docs/install/#mac-stable
 
-### 1. Stawianie środowiska lokalnie na dockerze
+### 1. Setting up the environment locally on Docker
 
-#### 1.1 Ustawienia dockera
+#### 1.1 Docker settings
 
-W celu poprawnej synchronizacji plików pomeidzy konetnerem dockera oraz plikami templatki nalezy w Opcjach dockera ustawić
-opcję **Use gRPC FUSE for file sharing** jako aktywną
+In order to properly synchronize files between the Docker connector and the template files, you must set the Docker Options
+**Use gRPC FUSE for file sharing** option as active
 
-#### 1.2 Ustawianie lokalnej domeny na przykładzie ```my-project.local```
+#### 1.2 Setting the local domain using the example of ```my-project.local```
 
-Przejdź do pliku `etc/hosts` w systemie Mac/Linux
+Navigate to the `etc/hosts` file on Mac/Linux
 
-Na końcu pliku dopisz 2 line:
+At the end of the file, add 2 lines:
 
 ```
 127.0.0.1 my-project.local
 ::1 my-project.local
 ```
-dodanie tych dwóch lini do pliku hosts ma na celu kierować wybraną domenę ```my-project.local``` na lokalną maszynę, w tym przypadku kontener w dockerze
+adding these two lines to the hosts file is to direct the selected domain ```my-project.local``` to the local machine, in this case a container in docker
 
-#### 1.3 Konfiguracja środowiska
+#### 1.3 Environment configuration
 
-W glównym folderze stworzenie nowego pliku `.env`, kopiując przykładowy ```.env.example```
+In the main folder, create a new `.env` file by copying the example ```.env.example```
 
 ```
 cp .env.example .env
 ```
 
-Przykładowa konfiguracja najistotniejszych zmiennych
+Sample configuration of the most important variables
 
 ```
 COMPOSE_PROJECT_NAME=project_name
@@ -47,42 +47,42 @@ WORDPRESS_ADMIN_EMAIL="moj-email@mohi.to"
 
 GULP_PROXY=http://my-project.local
 ```
-pamiętaj aby wartości ```GULP_PROXY``` oraz ```DOMAIN``` zgadzały sie z wymyśloną nazwą domeny, w tym przykładzie jest to ```my-project.local```
+remember that the values ​​of ```GULP_PROXY``` and ```DOMAIN``` match the invented domain name, in this example it is ```my-project.local```
 
-#### 1.4 Instalacja
+#### 1.4 Installation
 
-Ponizsza komenda poprzez 7 kroków, pobierze odpowiednie obrazy dockera, zainstaluje wordpressa według konfiguracji podanej w pliku ```.env```, zainstaluje wybrane pluginy oraz uruchomi podstawowy szablon
+The following command will, through 7 steps, download the appropriate Docker images, install WordPress according to the configuration given in the ```.env``` file, install selected plugins and run the basic template
 ```
 sh install
 ```
 
-#### 1.5 Instalacja pakietów dla node
+#### 1.5 Installing packages for node
 
-Przejdź do folderu plików żródłowych
+Go to the source files folder
 
 ```
 cd src
 ```
 
-Zainstaluj pakiety
+Install packages
 
 ```
-npm install 
-// lub
+npm install
+// the
 yarn install
 ```
 
-Uruchom gulpa
+Run gulp
 
 ```
-gulp watch 
-// lub
+gulp watch
+// the
 yarn start
 ```
 
-### 2. Dostępne adresy, dane dostępowe
+### 2. Available addresses, access data
 
-Na podstawie założonej z początku domeny ```my-project.local```, powstają nam poszczególne adresy na których możemy pracować
+Based on the domain ```my-project.local``` established at the beginning, we create individual addresses on which we can work
 
 - Wordpress - **http://my-project.local**
 - Wordpress - Admin - **http://my-project.local/wp-admin**
@@ -90,16 +90,16 @@ Na podstawie założonej z początku domeny ```my-project.local```, powstają na
 - Adminer - **http://my-project.local/_adminer**
 - phpMyAdmin - **http://my-project.local/_pma**
 
-Dostęp do bazy danych
+Access to the database
 
-- Serwer bazy danych: **database**
-- Użytkownik bazy danych: **root**
-- Hasło z bazy danych: **password**
-- Nazwa bazy danych: **wordpress**
+- Database server: **database**
+- Database user: **root**
+- Database password: **password**
+- Database name: **wordpress**
 
-### 3. Przydatne komendy
+### 3. Useful commands
 
-Użycie WP-CLI do zmiany adresów w bazie danych
+Using WP-CLI to change addresses in the database
 
 ```
 docker-compose run --rm wpcli search-replace 'some-old-domain.pl' 'some-new-domain.pl' --all-tables
@@ -107,12 +107,12 @@ docker-compose run --rm wpcli search-replace 'some-old-domain.pl' 'some-new-doma
 
 ### 4. Development
 
-### 4.1 Instalacja pluginów
+### 4.1 Installing plugins
 
-- pluginy premium w folderze `plugins` w archiwum `.zip`
-- wszytstkie inne pluginy dostępne w repozytorium pluginów wordpress wylistowane w pliku `plugins.txt` lub dodane w pliku `composer.json` jako
-  repozytorium **wpackagist** (https://wpackagist.org/)
-    - przykładowo **W3 Total Cache** https://pl.wordpress.org/plugins/w3-total-cache/
+- premium plugins in the `plugins` folder in the `.zip` archive
+- all other plugins available in the WordPress plugin repository listed in the `plugins.txt` file or added in the `composer.json` file as
+  **wpackagist** repository (https://wpackagist.org/)
+    - for example **W3 Total Cache** https://pl.wordpress.org/plugins/w3-total-cache/
         - plugins.txt:
         ```
         w3-total-cache
@@ -124,25 +124,25 @@ docker-compose run --rm wpcli search-replace 'some-old-domain.pl' 'some-new-doma
             "require": {
                 "php": "^7.1",
                 ...
-                "wpackagist-plugin/w3-total-cache":"2.1.1"        
+                "wpackagist-plugin/w3-total-cache":"2.1.1"
             }
         }
         ```
 
-### 4.2 Struktura plików
+### 4.2 File structure
 
 - **docker**
-    - **config** (pliki konfiguracyjne dla nginx oraz php)
-    - **volumes** (pliki wordpressa wp-content + wp-config.php)
-    - **logs** (logi apache oraz nginx)
-- **plugins** (pluginy premium do wordpressa)
-- **src** (pliki żródłowe)
+    - **config** (configuration files for nginx and php)
+    - **volumes** (Wordpress files wp-content + wp-config.php)
+    - **logs** (apache and nginx logs)
+- **plugins** (premium plugins for WordPress)
+- **src** (source files)
     - **styles** (style SCSS)
-    - **scripts** (skrypty JS)
-- **theme** (katalog szablonu wordpress)
-    - **controllers** (pliki szablonów stron)
-    - **includes** (pliki zawierające dodatkowe funkcjonalności szablonu)
-    - **styles** (zminifikowane pliki styli)
-    - **scripts** (zminifikowane pliki skryptów JS)
-    - **vendor** (dodatkowe biblioteki, instalacja z poziomu composera)
-    - **views** (pliki widoków .twig)
+    - **scripts** (JS scripts)
+- **theme** (wordpress template directory)
+    - **controllers** (page template files)
+    - **includes** (files containing additional template functionalities)
+    - **styles** (minified style files)
+    - **scripts** (minified JS script files)
+    - **vendor** (additional libraries, installation from composer)
+    - **views** (.twig view files)
