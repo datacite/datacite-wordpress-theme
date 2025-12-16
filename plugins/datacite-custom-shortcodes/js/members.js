@@ -274,7 +274,7 @@ function getMembers(member_type) {
 function getConsortiumMembers(member_id) {
   var xmlhttp = new XMLHttpRequest();
   var url =
-    "https://api.datacite.org/providers?consortium-id={{member_id}}&page[size]=400".replace("{{member_id}}", member_id);
+    "https://api.datacite.org/providers?query=is_active:%5Cu0001&consortium-id={{member_id}}&page[size]=400".replace("{{member_id}}", member_id);
 
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
