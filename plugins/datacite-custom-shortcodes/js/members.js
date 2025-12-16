@@ -260,7 +260,7 @@ function getCountryName(countryCode) {
 function getMembers(member_type) {
     var xmlhttp = new XMLHttpRequest();
     var url =
-      "https://api.datacite.org/providers?query=-id:txvt&member-type={{member_type}}&exclude-registration-agencies=true&page[size]=400".replace("{{member_type}}", member_type);
+      "https://api.datacite.org/providers?query=-id:txvt%20AND%20is_active:%5Cu0001&member-type={{member_type}}&exclude-registration-agencies=true&page[size]=400".replace("{{member_type}}", member_type);
 
     xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -274,7 +274,7 @@ function getMembers(member_type) {
 function getConsortiumMembers(member_id) {
   var xmlhttp = new XMLHttpRequest();
   var url =
-    "https://api.datacite.org/providers?consortium-id={{member_id}}&page[size]=400".replace("{{member_id}}", member_id);
+    "https://api.datacite.org/providers?query=is_active:%5Cu0001&consortium-id={{member_id}}&page[size]=400".replace("{{member_id}}", member_id);
 
   xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
